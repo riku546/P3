@@ -3,7 +3,6 @@
 import DisplayProblemInfo from '@/components/selfMadeComponents/DisplayProblemInfo'
 import Nav from '@/components/selfMadeComponents/Nav'
 import styles from './page.module.css'
-import './pageLayout.css'
 import useHome from '@/hooks/useHome'
 import { Button } from '@mui/material'
 import LoadingDialog from '@/components/selfMadeComponents/LoadingDialog'

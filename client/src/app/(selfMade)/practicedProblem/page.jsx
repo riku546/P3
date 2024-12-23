@@ -4,7 +4,7 @@ import Nav from '@/components/selfMadeComponents/Nav'
 import ProblemList from '@/components/selfMadeComponents/ProblemList'
 import usePracticed from '@/hooks/usePracticed'
 import React from 'react'
-import '@/app/pageLayout.css'
+
 import HamburgerMenu from '@/components/selfMadeComponents/HamburgerMenu'
 import styles from './page.module.css'
 

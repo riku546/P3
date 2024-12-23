@@ -1,9 +1,4 @@
 .container {
-    /* display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 40px; */
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-gap: 40px;
@@ -16,10 +11,10 @@
     gap: 30px;
     justify-content: space-between;
     background-color: rgba(0, 0, 0, 0.1);
-    padding: 40px;
+    padding: 15px;
     border: 2px solid gray;
     border-radius: 5px;
-    width: 80%;
+    max-width: 300px;
 }
 
 .problem:hover {
@@ -31,7 +26,11 @@
     align-items: end;
 }
 
-
+@media (max-width: 1350px) {
+    .container {
+        grid-template-columns: 1fr 1fr;
+    }
+}
 
 @media (max-width: 700px) {
     .container {
@@ -45,7 +44,7 @@
     .problem {
         flex-direction: column;
         padding: 0;
-        min-width: 280px;
+        min-width: 240px;
         padding: 10px 15px;
     }
 
