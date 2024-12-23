@@ -4,10 +4,11 @@ import HamburgerMenu from '@/components/selfMadeComponents/HamburgerMenu'
 import Nav from '@/components/selfMadeComponents/Nav'
 import React from 'react'
 import '@/app/pageLayout.css'
+import styles from './page.module.css'
 
 const page = () => {
     return (
-        <div className="container">
+        <div className={styles.container}>
             {/* パソコンとタブレットのときに表示される */}
             <nav className="nav">
                 <Nav />
@@ -19,7 +20,7 @@ const page = () => {
             </div>
 
             <main className="main-area">
-                <p style={{fontSize:20}}>
+                <p style={{ fontSize: 20 }}>
                     <span style={{ fontStyle: 'italic' }}>PPP</span>
                     とはProgramming Practice Platformの略です。
                     <br />

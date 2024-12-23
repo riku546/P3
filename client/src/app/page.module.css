@@ -1,8 +1,17 @@
-.form-area {
+.formArea {
     display: flex;
     gap: 20px;
     flex-direction: column;
 }
+
+.container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
 
 .title {
     font-size: 60px;
@@ -17,12 +26,13 @@
     width: 300px;
     height: 50px;
     border-radius: 5px;
+    border: none;
 }
 
-.level-radio {
+.levelRadio {
     display: flex;
 }
 
-.problem-area {
+.problemArea {
     margin-top: 200px;
 }

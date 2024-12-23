@@ -13,7 +13,7 @@ import HamburgerMenu from '@/components/selfMadeComponents/HamburgerMenu'
 const page = () => {
     const { problemInfo, reviewData, problemId } = useProblem()
     return (
-        <div className="container">
+        <div className={styles.container}>
             {/* パソコンとタブレットのときに表示される */}
             <nav className="nav">
                 <Nav />

@@ -2,7 +2,7 @@
 
 import DisplayProblemInfo from '@/components/selfMadeComponents/DisplayProblemInfo'
 import Nav from '@/components/selfMadeComponents/Nav'
-import './page.css'
+import styles from './page.module.css'
 import './pageLayout.css'
 import useHome from '@/hooks/useHome'
 import {
@@ -28,7 +28,7 @@ const Home = () => {
     } = useHome()
 
     return (
-        <div className="container">
+        <div className={styles.container} >
             <nav className="nav">
                 <Nav />
             </nav>
@@ -39,9 +39,9 @@ const Home = () => {
             </div>
 
             <main className="main-area">
-                <h1 className="title">Welcome to PPP </h1>
+                <h1 className={styles.title}>Welcome to PPP </h1>
 
-                <div className="form-area">
+                <div className={styles.formArea}>
                     {/* isLoadingがtrueの時は、ローディングのダイアログを表示する */}
                     <LoadingDialog isOpen={isLoading} />
                     <input
@@ -57,7 +57,7 @@ const Home = () => {
                         <RadioGroup
                             aria-labelledby="demo-radio-buttons-group-label"
                             row
-                            className="level-radio"
+                            className={styles.levelRadio}
                             defaultValue="初級"
                             name="radio-buttons-group">
                             {problemLevels.map(level => (
@@ -78,7 +78,7 @@ const Home = () => {
                         問題を生成
                     </Button>
                 </div>
-                <div className="problem-area">
+                <div className={styles.problemArea}>
                     {/* 問題が生成されたときに表示される */}
                     {problemInfos && (
                         <DisplayProblemInfo problemInfos={problemInfos} />

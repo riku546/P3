@@ -6,6 +6,7 @@ import useProblemList from '@/hooks/useProblemList'
 import '@/app/pageLayout.css'
 import React from 'react'
 import HamburgerMenu from '@/components/selfMadeComponents/HamburgerMenu'
+import styles from './page.module.css'
 
 const page = () => {
     const { allProblems, redirectProblemPage } = useProblemList()
@@ -22,7 +23,7 @@ const page = () => {
                 <HamburgerMenu />
             </div>
 
-            <main className="main-area">
+            <main className={styles.main}>
                 <ProblemList
                     problemInfos={allProblems}
                     redirectProblemPage={redirectProblemPage}

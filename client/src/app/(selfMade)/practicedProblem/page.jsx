@@ -6,6 +6,7 @@ import usePracticed from '@/hooks/usePracticed'
 import React from 'react'
 import '@/app/pageLayout.css'
 import HamburgerMenu from '@/components/selfMadeComponents/HamburgerMenu'
+import styles from './page.module.css'
 
 const page = () => {
     const { practicedProblems } = usePracticed()
@@ -22,7 +23,7 @@ const page = () => {
                 <HamburgerMenu />
             </div>
 
-            <main className="main-area">
+            <main className={styles.main}>
                 {/* 生成した問題がない場合は"なし"と表示される */}
                 {practicedProblems.length === 0 ? (
                     <div>なし</div>
