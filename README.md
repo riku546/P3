@@ -3,7 +3,6 @@
 ### laravelのディレクトリー
 
     composer install
-    php artisan breeze:install 
     php artisan key:generate
     php artisan migrate
 
