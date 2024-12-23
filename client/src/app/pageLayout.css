@@ -1,27 +1,14 @@
 .container {
     width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    
+    display: grid;
+    grid-template-columns: 1fr 4fr;
 }
-
-
 
 .nav {
-    display: none;
+    display: block;
 }
 
-.hamburger-menu {
-    position: fixed;
-    left: 20px;
-    top: 20px;
-}
-.hamburger-menu:hover {
-    cursor: pointer;
-}
-
-/* @media (max-width: 700px) {
+@media (max-width: 700px) {
     .container {
         display: flex;
         justify-content: center;
@@ -32,4 +19,12 @@
         border: none;
         display: none;
     }
-} */
+    .hamburger-menu {
+        position: fixed;
+        left: 20px;
+        top: 20px;
+    }
+    .hamburger-menu:hover {
+        cursor: pointer;
+    }
+}

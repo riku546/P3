@@ -22,16 +22,16 @@ const Home = () => {
 
     return (
         <div className={styles.container}>
-            <nav className="nav">
+            <nav className={styles.nav}>
                 <Nav />
             </nav>
 
             {/* スマホのときに表示される */}
-            <div className="hamburger-menu">
+            <div className={styles.hamburgerMenu}>
                 <HamburgerMenu />
             </div>
 
-            <main className="main-area">
+            <main className={styles.mainArea}>
                 <h1 className={styles.title}>Welcome to PPP </h1>
 
                 <div className={styles.formArea}>
