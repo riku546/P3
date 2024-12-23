@@ -1,0 +1,44 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    width: 100%;
+}
+
+.problem {
+    display: flex;
+    cursor: pointer;
+    gap: 30px;
+    justify-content: space-between;
+    background-color: rgba(0, 0, 0, 0.1);
+    padding: 25px 40px;
+    border: 2px solid gray;
+    border-radius: 5px;
+    width: 80%;
+}
+
+.problem:hover {
+    box-shadow: 0px 0px 46px -5px #4b4b4b;
+}
+
+.ratingArea {
+    display: flex;
+    align-items: end;
+}
+
+@media (max-width: 800px) {
+    .problem {
+        flex-direction: column;
+        padding: 0;
+        min-width: 280px;
+        padding: 10px 15px ;
+    }
+
+    .problemInfo {
+        display: flex;
+        flex-direction: column;
+
+    }
+}

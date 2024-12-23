@@ -1,0 +1,25 @@
+.container {
+    display: flex;
+    gap: 30px;
+    flex-direction: column;
+    background-color: rgba(0, 0, 0, 0.1);
+    padding: 25px 40px;
+    border: 2px solid gray;
+    border-radius: 5px;
+}
+
+.label {
+    font-size: 25px;
+    margin-bottom: 10px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+
+@media (max-width: 800px) {
+    .container{
+        display: flex;
+        justify-content: center;
+        width: 360px;
+    }
+}

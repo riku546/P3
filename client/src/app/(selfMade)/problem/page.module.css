@@ -1,0 +1,13 @@
+.ratingArea{
+  width: 100%;
+  display: flex;
+  justify-content: end;
+  margin-bottom: 30px;
+  gap: 60px;
+}
+
+
+.expressRate{
+  display: flex;
+  align-items: center;
+}

@@ -1,0 +1,21 @@
+.navList {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    position: fixed;
+    padding: 20px;
+}
+
+.nav {
+    display: flex;
+    gap: 10px;
+    cursor: pointer;
+}
+
+.nav:hover {
+    opacity: 0.5;
+}
+
+.navText {
+    font-size: 20px;
+}
