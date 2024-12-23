@@ -1,0 +1,55 @@
+
+.container {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 180px 5fr;
+  
+}
+
+.mainArea{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+}
+
+
+
+.nav{
+  border-right: 2px black solid;
+  max-width: 180px;
+  background-color: rgba(14, 12, 12, 0.8);
+}
+
+
+
+.hamburgerMenu{
+  display: none;
+}
+
+
+
+
+
+@media (max-width: 700px) {
+  .container {
+      display: flex;
+      flex-direction: column;
+      
+  }
+
+  .nav {
+      border: none;
+      display: none;
+  }
+  .hamburgerMenu {
+      display: block;
+      position: fixed;
+      left: 20px;
+      top: 20px;
+  }
+  .hamburgerMenu:hover {
+      cursor: pointer;
+  }
+}

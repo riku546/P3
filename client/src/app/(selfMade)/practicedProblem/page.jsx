@@ -12,18 +12,18 @@ const page = () => {
     const { practicedProblems } = usePracticed()
 
     return (
-        <div className="container">
+        <div className={styles.container}>
             {/* パソコンとタブレットのときに表示される */}
-            <nav className="nav">
+            <nav className={styles.nav}>
                 <Nav />
             </nav>
 
             {/* スマホのときに表示される */}
-            <div className="hamburger-menu">
+            <div className={styles.hamburgerMenu}>
                 <HamburgerMenu />
             </div>
 
-            <main className={styles.main}>
+            <main className={styles.mainArea}>
                 {/* 生成した問題がない場合は"なし"と表示される */}
                 {practicedProblems.length === 0 ? (
                     <div>なし</div>
