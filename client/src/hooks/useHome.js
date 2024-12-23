@@ -11,6 +11,20 @@ const useHome = () => {
     const [programmingLang, setProgrammingLang] = useState('php')
     const [problemInfos, setProblemInfos] = useState(null)
     const [isLoading, setIsLoading] = useState(false)
+    const languages = [
+        'C++',
+        'C#',
+        'Java',
+        'Ruby',
+        'PHP',
+        'Python',
+        'JavaScript',
+        'TypeScript',
+        'Rust',
+        'Swift',
+        'Go',
+        'Kotlin',
+    ]
 
     const verifyLoginAndFetch = async () => {
         //ユーザーがログインしているかを確認
@@ -42,6 +56,7 @@ const useHome = () => {
         verifyLoginAndFetch,
         problemInfos,
         isLoading,
+        languages,
     }
 }
 
