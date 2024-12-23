@@ -5,17 +5,10 @@ import Nav from '@/components/selfMadeComponents/Nav'
 import styles from './page.module.css'
 import './pageLayout.css'
 import useHome from '@/hooks/useHome'
-import {
-    Button,
-    CircularProgress,
-    FormControl,
-    FormControlLabel,
-    FormLabel,
-    Radio,
-    RadioGroup,
-} from '@mui/material'
+import { Button } from '@mui/material'
 import LoadingDialog from '@/components/selfMadeComponents/LoadingDialog'
 import HamburgerMenu from '@/components/selfMadeComponents/HamburgerMenu'
+import LevelRadio from '@/components/selfMadeComponents/LevelRadio'
 
 const Home = () => {
     const {
@@ -28,7 +21,7 @@ const Home = () => {
     } = useHome()
 
     return (
-        <div className={styles.container} >
+        <div className={styles.container}>
             <nav className="nav">
                 <Nav />
             </nav>
@@ -50,27 +43,11 @@ const Home = () => {
                         className="input"
                         onChange={e => setProgrammingLang(e.target.value)}
                     />
-                    <FormControl>
-                        <FormLabel id="demo-radio-buttons-group-label">
-                            Level
-                        </FormLabel>
-                        <RadioGroup
-                            aria-labelledby="demo-radio-buttons-group-label"
-                            row
-                            className={styles.levelRadio}
-                            defaultValue="初級"
-                            name="radio-buttons-group">
-                            {problemLevels.map(level => (
-                                <FormControlLabel
-                                    key={level}
-                                    value={level}
-                                    control={<Radio />}
-                                    label={level}
-                                    onClick={() => setLevel(level)}
-                                />
-                            ))}
-                        </RadioGroup>
-                    </FormControl>
+                    <LevelRadio
+                        problemLevels={problemLevels}
+                        setLevel={setLevel}
+                    />
+
                     <Button
                         variant="contained"
                         disableElevation
