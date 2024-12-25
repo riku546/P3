@@ -37,26 +37,28 @@ class problemController extends Controller
     public function filterProblems(Request $request)
     {
         try {
-            $filteredProblems = [];
 
             //フィルターされていない場合
             if ($request->level == 'all' && $request->programmingLang == 'all') {
-                $filteredProblems = DB::select("SELECT * FROM problems");
+                $all_problems = DB::select("SELECT * FROM problems");
+                return response()->json($all_problems);
             }
             //プログラミング言語でフィルターされた場合
             elseif ($request->level == 'all' && $request->programmingLang != 'all') {
-                $filteredProblems = DB::select("SELECT * FROM problems WHERE programmingLang = ?", [$request->programmingLang]);
+                $filtered_problems_by_lang = DB::select("SELECT * FROM problems WHERE programmingLang = ?", [$request->programmingLang]);
+                return response()->json($filtered_problems_by_lang);
             }
             //レベルでフィルターされた場合
             elseif ($request->level != 'all' && $request->programmingLang == 'all') {
-                $filteredProblems = DB::select("SELECT * FROM problems WHERE level = ?", [$request->level]);
+                $filtered_problems_by_level = DB::select("SELECT * FROM problems WHERE level = ?", [$request->level]);
+                return response()->json($filtered_problems_by_level);
             }
             //レベルとプログラミング言語でフィルターされた場合
             elseif ($request->level != 'all' && $request->programmingLang != 'all') {
-                $filteredProblems = DB::select("SELECT * FROM problems WHERE level = ? AND programmingLang = ?", [$request->level, $request->programmingLang]);
+                $filtered_problems_by_lang_and_level = DB::select("SELECT * FROM problems WHERE level = ? AND programmingLang = ?", [$request->level, $request->programmingLang]);
+                return response()->json($filtered_problems_by_lang_and_level);
             }
 
-            return response()->json($filteredProblems);
         } catch (\Throwable $th) {
             throw $th;
         }
