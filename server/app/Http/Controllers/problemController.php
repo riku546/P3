@@ -19,8 +19,8 @@ class problemController extends Controller
             throw $th;
         }
     }
+
     //問題単体の情報を取得
-    //引数はURLパラメータで渡される問題ID
     public function fetchProblem(int $problemId): JsonResponse
     {
         try {
@@ -31,9 +31,14 @@ class problemController extends Controller
         }
     }
 
+    public function filterProblems(Request $request)
+    {
+
+    }
+
     //生成した問題をDBに保存
     //引数 $resはAiが生成した物  $requestはフロントから渡されたデータ
-    public function saveProblems(array $res, object $request): void
+    public static function saveProblems(array $res, object $request): void
     {
         try {
             $problem = new Problems();

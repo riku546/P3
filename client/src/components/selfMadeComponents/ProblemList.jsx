@@ -16,8 +16,8 @@ const ProblemList = ({ problemInfos }) => {
                     className={styles.problem}
                     >
                     <div className={styles.problemInfo}>
-                        <p>問題番号：{problemInfo.id}</p>
-                        <p>言語：{problemInfo.programmingLang}</p>
+                        
+                        <p>{problemInfo.programmingLang}</p>
                         <p>レベル：{problemInfo.level}</p>
                     </div>
                     <div className={styles.ratingArea}>

@@ -11,14 +11,13 @@ class requestAiController extends Controller
     //問題の生成とDBへの保存
     public function store(Request $request)
     {
+        //geminiから問題文 ヒント 回答を取得
+        $gemini_response = Gemini::getAIGeneratedText($request->programmingLang, $request->level);
 
-        $gemini = new Gemini($request);
-        $res = $gemini->getAIGeneratedText();
+        //geminiに生成してもらった問題 ヒント 回答をDBに保存
+        problemController::saveProblems($gemini_response, $request);
 
-        $problemController = new problemController();
-        $problemController->saveProblems($res, $request);
-
-        return response()->json($res);
+        return response()->json($gemini_response);
 
     }
 }

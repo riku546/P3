@@ -6,7 +6,5 @@ namespace App\Lib\abstractClass;
 
 abstract class Ai
 {
-    private string $problemLevel;
-    private string $programmingLang;
-    abstract public function getAIGeneratedText(): array;
+    abstract public static function getAIGeneratedText($programmingLang, $level): array;
 }

@@ -15,17 +15,8 @@ use GeminiAPI\Resources\Parts\TextPart;
 class Gemini extends Ai
 {
 
-    private string $level;
-    private string $programmingLang;
-
-    public function __construct(object $request)
-    {
-        $this->level = $request->level;
-        $this->programmingLang = $request->programmingLang;
-    }
-
-    // geminiに問題文 ヒント 回答を生成してもらい、キャッシュしている
-    public function getAIGeneratedText(): array
+    // geminiに問題文 ヒント 回答を生成してもらい、それを連想配列で返す
+    public static function getAIGeneratedText($programmingLang, $level): array
     {
 
         try {
@@ -35,7 +26,7 @@ class Gemini extends Ai
             $chat = $client->geminiPro()->startChat();
 
             //プロンプトを取得
-            ["problemPrompt" => $problemPrompt, "hintPrompt" => $hintPrompt, "answerPrompt" => $answerPrompt] = generatePrompt($this->programmingLang, $this->level);
+            ["problemPrompt" => $problemPrompt, "hintPrompt" => $hintPrompt, "answerPrompt" => $answerPrompt] = generatePrompt($programmingLang, $level);
 
             // 問題文 ヒント 回答を生成してもらう
             $problem = $chat->sendMessage(new TextPart($problemPrompt));
@@ -51,7 +42,7 @@ class Gemini extends Ai
             return $response;
 
         } catch (\Throwable $th) {
-            return ["error" => $th->getMessage()];
+            throw $th;
         }
 
     }
