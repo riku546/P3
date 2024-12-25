@@ -6,6 +6,7 @@ use App\Models\Problems;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class problemController extends Controller
 {
@@ -31,9 +32,34 @@ class problemController extends Controller
         }
     }
 
+    // この関数は問題をレベルとプログラミング言語によってフィルターをする
+    //問題一覧ページと生成履歴ページでのフィルターに使用
     public function filterProblems(Request $request)
     {
+        try {
+            $filteredProblems = [];
 
+            //フィルターされていない場合
+            if ($request->level == 'all' && $request->programmingLang == 'all') {
+                $filteredProblems = DB::select("SELECT * FROM problems");
+            }
+            //プログラミング言語でフィルターされた場合
+            elseif ($request->level == 'all' && $request->programmingLang != 'all') {
+                $filteredProblems = DB::select("SELECT * FROM problems WHERE programmingLang = ?", [$request->programmingLang]);
+            }
+            //レベルでフィルターされた場合
+            elseif ($request->level != 'all' && $request->programmingLang == 'all') {
+                $filteredProblems = DB::select("SELECT * FROM problems WHERE level = ?", [$request->level]);
+            }
+            //レベルとプログラミング言語でフィルターされた場合
+            elseif ($request->level != 'all' && $request->programmingLang != 'all') {
+                $filteredProblems = DB::select("SELECT * FROM problems WHERE level = ? AND programmingLang = ?", [$request->level, $request->programmingLang]);
+            }
+
+            return response()->json($filteredProblems);
+        } catch (\Throwable $th) {
+            throw $th;
+        }
     }
 
     //生成した問題をDBに保存
