@@ -4,7 +4,6 @@ import DisplayProblemInfo from '@/components/selfMadeComponents/DisplayProblemIn
 import Nav from '@/components/selfMadeComponents/Nav'
 import ReviewDialog from '@/components/selfMadeComponents/ReviewDialog'
 import useProblem from '@/hooks/useProblem'
-import '@/app/pageLayout.css'
 import styles from './page.module.css'
 import React from 'react'
 import { Rating } from '@mui/material'
@@ -15,16 +14,16 @@ const page = () => {
     return (
         <div className={styles.container}>
             {/* パソコンとタブレットのときに表示される */}
-            <nav className="nav">
+            <nav className={styles.nav}>
                 <Nav />
             </nav>
 
             {/* スマホのときに表示される */}
-            <div className="hamburger-menu">
+            <div className={styles.hamburgerMenu}>
                 <HamburgerMenu />
             </div>
 
-            <main className="main-area">
+            <main className={styles.mainArea}>
                 <div className={styles.ratingArea}>
                     <div className={styles.expressRate}>
                         <Rating

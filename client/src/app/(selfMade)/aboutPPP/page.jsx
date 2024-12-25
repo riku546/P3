@@ -23,7 +23,9 @@ const page = () => {
                     <span style={{ fontStyle: 'italic' }}>PPP</span>
                     とはProgramming Practice Platformの略です。
                     <br />
-                    プログラミング言語を実践的に習得するためのプラットフォームです。
+                    プログラミング言語の問題を解き、スキルを向上させることを目的としています。
+                    <br />
+                    ただ問題を解くだけではなく、問題の共有もできるようになっています。
                 </p>
             </main>
         </div>
