@@ -7,7 +7,7 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle'
 import ChecklistIcon from '@mui/icons-material/Checklist'
 import ArticleIcon from '@mui/icons-material/Article'
 
-const Nav = () => {
+const Nav = ({ FilterDialog }) => {
     const { userNameOrLogin } = useNav()
 
     return (
@@ -37,6 +37,11 @@ const Nav = () => {
             <div className={styles.nav}>
                 <div className={styles.navText}>
                     <Link href="/aboutPPP"> PPPとは</Link>
+                </div>
+            </div>
+            <div className={styles.nav}>
+                <div className={styles.navText}>
+                    <FilterDialog />
                 </div>
             </div>
         </div>
