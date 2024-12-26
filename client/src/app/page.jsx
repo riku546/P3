@@ -9,7 +9,6 @@ import LoadingDialog from '@/components/selfMadeComponents/LoadingDialog'
 import HamburgerMenu from '@/components/selfMadeComponents/HamburgerMenu'
 import LevelRadio from '@/components/selfMadeComponents/LevelRadio'
 import LanguageRadio from '@/components/selfMadeComponents/LanguageRadio'
-import FilterDialog from '@/components/selfMadeComponents/FilterDialog'
 
 const Home = () => {
     const {
@@ -25,7 +24,7 @@ const Home = () => {
     return (
         <div className={styles.container}>
             <nav className={styles.nav}>
-                <Nav FilterDialog={FilterDialog} />
+                <Nav filterDialog={false} />
             </nav>
 
             {/* スマホのときに表示される */}

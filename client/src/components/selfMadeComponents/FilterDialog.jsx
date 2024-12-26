@@ -1,4 +1,4 @@
-"use client"
+'use client'
 
 import * as React from 'react'
 
@@ -10,12 +10,12 @@ import { DialogActions, DialogContent } from '@mui/material'
 import LanguageSelect from './LanguageSelect'
 import LevelRadio from './LevelRadio'
 import useHome from '@/hooks/useHome'
+import LevelSelect from './LevelSelect'
 
 export default function FilterDialog() {
     const [open, setOpen] = React.useState(false)
     const [language, setLanguage] = React.useState('all')
     const [level, setLevel] = React.useState('all')
-    const { problemLevels } = useHome()
     const handleClickOpen = () => {
         setOpen(true)
     }
@@ -34,7 +34,7 @@ export default function FilterDialog() {
                 handleClose={handleClose}
                 language={language}
                 setLanguage={setLanguage}
-                problemLevels={problemLevels}
+                level={level}
                 setLevel={setLevel}
             />
         </div>
@@ -46,14 +46,14 @@ function SimpleDialog({
     handleClose,
     language,
     setLanguage,
-    problemLevels,
+    level,
     setLevel,
 }) {
     return (
         <Dialog onClose={handleClose} open={open}>
             <DialogContent>
                 <LanguageSelect language={language} setLanguage={setLanguage} />
-                <LevelRadio problemLevels={problemLevels} setLevel={setLevel} />
+                <LevelSelect level={level} setLevel={setLevel} />
             </DialogContent>
             <DialogActions>
                 <Button onClick={handleClose}>キャンセル</Button>

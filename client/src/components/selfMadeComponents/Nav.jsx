@@ -6,8 +6,9 @@ import HomeIcon from '@mui/icons-material/Home'
 import AccountCircleIcon from '@mui/icons-material/AccountCircle'
 import ChecklistIcon from '@mui/icons-material/Checklist'
 import ArticleIcon from '@mui/icons-material/Article'
+import FilterDialog from './FilterDialog'
 
-const Nav = ({ FilterDialog }) => {
+const Nav = ({ filterDialog }) => {
     const { userNameOrLogin } = useNav()
 
     return (
@@ -39,11 +40,15 @@ const Nav = ({ FilterDialog }) => {
                     <Link href="/aboutPPP"> PPPとは</Link>
                 </div>
             </div>
-            <div className={styles.nav}>
-                <div className={styles.navText}>
-                    <FilterDialog />
+            {/* FilterDialogは問題一覧ページと生成履歴ページで表示されるので
+            条件分岐をしています。filterDialogにはブール値が入ります。 */}
+            {filterDialog && (
+                <div className={styles.nav}>
+                    <div className={styles.navText}>
+                        <FilterDialog />
+                    </div>
                 </div>
-            </div>
+            )}
         </div>
     )
 }
