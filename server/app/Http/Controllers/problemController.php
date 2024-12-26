@@ -34,28 +34,28 @@ class problemController extends Controller
 
     // この関数は問題をレベルとプログラミング言語によってフィルターをする
     //問題一覧ページと生成履歴ページでのフィルターに使用
-    public function filterProblems(Request $request)
+    public function filterProblems(string $lang, string $level)
     {
         try {
 
             //フィルターされていない場合
-            if ($request->level == 'all' && $request->programmingLang == 'all') {
+            if ($level == 'all' && $lang == 'all') {
                 $all_problems = DB::select("SELECT * FROM problems");
                 return response()->json($all_problems);
             }
             //プログラミング言語でフィルターされた場合
-            elseif ($request->level == 'all' && $request->programmingLang != 'all') {
-                $filtered_problems_by_lang = DB::select("SELECT * FROM problems WHERE programmingLang = ?", [$request->programmingLang]);
+            elseif ($level == 'all' && $lang != 'all') {
+                $filtered_problems_by_lang = DB::select("SELECT * FROM problems WHERE programmingLang = ?", [$lang]);
                 return response()->json($filtered_problems_by_lang);
             }
             //レベルでフィルターされた場合
-            elseif ($request->level != 'all' && $request->programmingLang == 'all') {
-                $filtered_problems_by_level = DB::select("SELECT * FROM problems WHERE level = ?", [$request->level]);
+            elseif ($level != 'all' && $lang == 'all') {
+                $filtered_problems_by_level = DB::select("SELECT * FROM problems WHERE level = ?", [$level]);
                 return response()->json($filtered_problems_by_level);
             }
             //レベルとプログラミング言語でフィルターされた場合
-            elseif ($request->level != 'all' && $request->programmingLang != 'all') {
-                $filtered_problems_by_lang_and_level = DB::select("SELECT * FROM problems WHERE level = ? AND programmingLang = ?", [$request->level, $request->programmingLang]);
+            elseif ($level != 'all' && $lang != 'all') {
+                $filtered_problems_by_lang_and_level = DB::select("SELECT * FROM problems WHERE level = ? AND programmingLang = ?", [$level, $lang]);
                 return response()->json($filtered_problems_by_lang_and_level);
             }
 

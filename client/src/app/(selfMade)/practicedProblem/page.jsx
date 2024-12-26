@@ -15,7 +15,7 @@ const page = () => {
         <div className={styles.container}>
             {/* パソコンとタブレットのときに表示される */}
             <nav className={styles.nav}>
-                <Nav filterDialog={true} />
+                <Nav filterDialog={false} />
             </nav>
 
             {/* スマホのときに表示される */}

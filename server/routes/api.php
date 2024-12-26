@@ -40,7 +40,7 @@ Route::get("/allProblems", [problemController::class, 'fetchAllProblems']);
 Route::get("/problem/{problemId}", [problemController::class, 'fetchProblem']);
 
 //問題一覧ページと生成履歴ページでのフィルターに使用
-Route::get("/filterProblems", [problemController::class, 'filterProblems']);
+Route::get("/filterProblems/{lang}/{level}", [problemController::class, 'filterProblems']);
 
 //ここから下はユーザごとのルート
 //********************************************************************************************************************

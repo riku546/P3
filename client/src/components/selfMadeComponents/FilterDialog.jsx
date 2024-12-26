@@ -8,20 +8,25 @@ import Dialog from '@mui/material/Dialog'
 
 import { DialogActions, DialogContent } from '@mui/material'
 import LanguageSelect from './LanguageSelect'
-import LevelRadio from './LevelRadio'
-import useHome from '@/hooks/useHome'
 import LevelSelect from './LevelSelect'
+import useProblemList from '@/hooks/useProblemList'
 
-export default function FilterDialog() {
+export default function FilterDialog({fetchFilteredProblems}) {
     const [open, setOpen] = React.useState(false)
     const [language, setLanguage] = React.useState('all')
     const [level, setLevel] = React.useState('all')
+
     const handleClickOpen = () => {
         setOpen(true)
     }
 
     const handleClose = () => {
         setOpen(false)
+    }
+
+    const handleFilter = async () => {
+        setOpen(false)
+        await fetchFilteredProblems(language, level)
     }
 
     return (
@@ -36,6 +41,7 @@ export default function FilterDialog() {
                 setLanguage={setLanguage}
                 level={level}
                 setLevel={setLevel}
+                handleFilter={handleFilter}
             />
         </div>
     )
@@ -48,6 +54,7 @@ function SimpleDialog({
     setLanguage,
     level,
     setLevel,
+    handleFilter,
 }) {
     return (
         <Dialog onClose={handleClose} open={open}>
@@ -57,7 +64,7 @@ function SimpleDialog({
             </DialogContent>
             <DialogActions>
                 <Button onClick={handleClose}>キャンセル</Button>
-                <Button onClick={handleClose} autoFocus>
+                <Button onClick={handleFilter} autoFocus>
                     絞り込む
                 </Button>
             </DialogActions>

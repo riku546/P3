@@ -8,7 +8,7 @@ import ChecklistIcon from '@mui/icons-material/Checklist'
 import ArticleIcon from '@mui/icons-material/Article'
 import FilterDialog from './FilterDialog'
 
-const Nav = ({ filterDialog }) => {
+const Nav = ({ filterDialog, fetchFilteredProblems }) => {
     const { userNameOrLogin } = useNav()
 
     return (
@@ -40,12 +40,14 @@ const Nav = ({ filterDialog }) => {
                     <Link href="/aboutPPP"> PPPとは</Link>
                 </div>
             </div>
-            {/* FilterDialogは問題一覧ページと生成履歴ページで表示されるので
+            {/* FilterDialogは問題一覧ページで表示されるので
             条件分岐をしています。filterDialogにはブール値が入ります。 */}
             {filterDialog && (
                 <div className={styles.nav}>
                     <div className={styles.navText}>
-                        <FilterDialog />
+                        <FilterDialog
+                            fetchFilteredProblems={fetchFilteredProblems}
+                        />
                     </div>
                 </div>
             )}
