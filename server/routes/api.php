@@ -25,13 +25,13 @@ Route::middleware(['auth:sanctum'])->get('/user', function (Request $request) {
 Route::get('/gpt', [gptController::class, 'returnAndSaveGptRes']);
 
 //問題の生成と保存
-Route::post('/generateProblem', [requestAiController::class, 'store']);
+Route::post('/generateProblem', [requestAiController::class, 'store'])->middleware('auth:sanctum');
 
 //レビュー（星）の新規登録と更新
-Route::post("/review", [reviewController::class, 'processRequest']);
+Route::post("/review", [reviewController::class, 'processRequest'])->middleware('auth:sanctum');
 
 //レビュー（星）の削除
-Route::delete("/deleteReview", [reviewController::class, 'deleteReview']);
+Route::delete("/deleteReview", [reviewController::class, 'deleteReview'])->middleware('auth:sanctum');
 
 //問題一覧ページに表示する問題データを取得
 Route::get("/allProblems", [problemController::class, 'fetchAllProblems']);
@@ -49,4 +49,4 @@ Route::get("/filterProblems/{lang}/{level}", [problemController::class, 'filterP
 Route::get("/personalProblems", [problemController::class, 'fetchPersonalProblems']);
 
 //ユーザーが以前に作成した問題を削除
-Route::delete("/deleteProblem", [problemController::class, 'deleteProblem']);
+Route::delete("/deleteProblem", [problemController::class, 'deleteProblem'])->middleware('auth:sanctum');

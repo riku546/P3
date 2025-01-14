@@ -35,7 +35,7 @@ const useReview = () => {
             })
             alert('success')
         } catch (error) {
-            console.log(error)
+            alert('やり直してください')
         }
     }
 
