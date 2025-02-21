@@ -28,7 +28,7 @@ const RootLayout = ({ children }) => {
 }
 
 export const metadata = {
-    title: 'PPP',
+    title: 'P3',
 }
 
 export default RootLayout

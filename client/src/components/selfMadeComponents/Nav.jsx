@@ -37,7 +37,7 @@ const Nav = ({ filterDialog, fetchFilteredProblems }) => {
             </div>
             <div className={styles.nav}>
                 <div className={styles.navText}>
-                    <Link href="/aboutPPP"> PPPとは</Link>
+                    <Link href="/aboutP3"> P3とは</Link>
                 </div>
             </div>
             {/* FilterDialogは問題一覧ページで表示されるので

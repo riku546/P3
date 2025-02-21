@@ -34,7 +34,7 @@ const Home = () => {
 
             <main className={styles.mainArea}>
                 <div>
-                    <h1 className={styles.title}>Welcome to PPP </h1>
+                    <h1 className={styles.title}>Welcome to P3 </h1>
 
                     <div className={styles.formArea}>
                         {/* isLoadingがtrueの時は、ローディングのダイアログを表示する */}

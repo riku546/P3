@@ -10,7 +10,7 @@ const page = () => {
         <div className={styles.container}>
             {/* パソコンとタブレットのときに表示される */}
             <nav className={styles.nav}>
-                <Nav filterDialog={false}/>
+                <Nav filterDialog={false} />
             </nav>
 
             {/* スマホのときに表示される */}
@@ -20,7 +20,7 @@ const page = () => {
 
             <main className={styles.mainArea}>
                 <p style={{ fontSize: 20 }}>
-                    <span style={{ fontStyle: 'italic' }}>PPP</span>
+                    <span style={{ fontStyle: 'italic' }}>P3</span>
                     とはProgramming Practice Platformの略です。
                     <br />
                     プログラミング言語の問題を解き、スキルを向上させることを目的としています。
